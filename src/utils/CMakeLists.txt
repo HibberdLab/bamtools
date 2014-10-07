@@ -8,7 +8,7 @@
 # list include paths
 include_directories( ${BamTools_SOURCE_DIR}/src/api )
 
-# add compiler definitions 
+# add compiler definitions
 add_definitions( -DBAMTOOLS_UTILS_LIBRARY ) # (for proper exporting of library symbols)
 add_definitions( -fPIC ) # (attempt to force PIC compiling on CentOS, not being set on shared libs by CMake)
 
@@ -28,12 +28,12 @@ set_target_properties( BamTools-utils PROPERTIES
                        OUTPUT_NAME bamtools-utils
                        PREFIX "lib"
                      )
-                     
+
 # export UTILS headers
 include(../ExportHeader.cmake)
-set(ApiIncludeDir "utils")
-ExportHeader(APIHeaders bamtools_pileup_engine.h ${ApiIncludeDir})
-ExportHeader(APIHeaders utils_global.h           ${ApiIncludeDir})
+set(UtilIncludeDir "utils")
+ExportHeader(UtilHeaders bamtools_pileup_engine.h ${UtilIncludeDir})
+ExportHeader(UtilHeaders utils_global.h           ${UtilIncludeDir})
 
 # set library install destinations
 install( TARGETS BamTools-utils ARCHIVE DESTINATION "lib/bamtools")

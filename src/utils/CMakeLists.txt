@@ -28,6 +28,12 @@ set_target_properties( BamTools-utils PROPERTIES
                        OUTPUT_NAME bamtools-utils
                        PREFIX "lib"
                      )
+                     
+# export UTILS headers
+include(../ExportHeader.cmake)
+set(ApiIncludeDir "utils")
+ExportHeader(APIHeaders bamtools_pileup_engine.h ${ApiIncludeDir})
+ExportHeader(APIHeaders utils_global.h           ${ApiIncludeDir})
 
 # set library install destinations
 install( TARGETS BamTools-utils ARCHIVE DESTINATION "lib/bamtools")
